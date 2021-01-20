@@ -1,0 +1,18 @@
+import { STORE, UPDATE, DELETE } from "./modelActionTypes";
+import { initialData } from "./initialData";
+
+export default function (storeData, action) {
+  switch (action.type) {
+    case STORE:
+      return {
+        ...storeData,
+        [action.dataType]: storeData[action.dataType].concat([action.payload])
+      };
+    case UPDATE:
+      return {};
+    case DELETE:
+      return {};
+    default:
+      return storeData || initialData;
+  }
+}
